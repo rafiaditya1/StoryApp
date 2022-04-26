@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">StoryApp</string>
+    <string name="welcome">Welcome,</string>
+    <string name="log_in_now_to_continue">Log in now to continue</string>
+    <string name="input_email">Enter your email</string>
+    <string name="input_password">Enter your password</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="length_password">Password must be more than 6 characters</string>
+    <string name="valid_email">Invalid email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logo">logo</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="register_now">Register now</string>
+    <string name="input_name">Enter your name</string>
+    <string name="name">Nama</string>
+    <string name="have_an_account">Already have an account?</string>
+    <string name="filled">all field must be filled</string>
+    <string name="success">Stories load success</string>
+    <string name="story_photo">Story Photo</string>
+    <string name="description">Description</string>
+    <string name="floating_button">floating_button</string>
+    <string name="camera">Camera</string>
+    <string name="galeri">Galeri</string>
+    <string name="upload">Upload</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="take_picture_failed">Take Picture Failed</string>
+    <string name="failed_to_show_camera">Failed to show camera</string>
+    <string name="please_insert_image">Please insert image</string>
+    <string name="upload_failed">Upload failed</string>
+    <string name="upload_success">Upload success</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
+    <string name="register_success">Register success</string>
+    <string name="register_failed">Register failed</string>
+    <string name="login_success">Login success</string>
+    <string name="login_failed">Login failed</string>
+    <string name="language_setting">Language Setting</string>
+    <string name="email_not_available">Email not available</string>
+    <string name="password_invalid">Password Invalid</string>
+</resources>
