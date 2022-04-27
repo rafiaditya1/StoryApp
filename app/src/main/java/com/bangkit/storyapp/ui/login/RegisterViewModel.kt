@@ -2,6 +2,7 @@ package com.bangkit.storyapp.ui.login
 
 import android.content.ContentValues
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -41,6 +42,7 @@ class RegisterViewModel : ViewModel() {
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+//                Toast.makeText(this, t.message.toString())
             }
 
         })

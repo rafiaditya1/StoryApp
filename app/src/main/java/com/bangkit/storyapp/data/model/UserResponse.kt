@@ -41,6 +41,10 @@ data class LoginResult(
 
 @Parcelize
 data class UserLogin(
+	val name: String,
+	val userId: String,
+	val email: String,
+	val password: String,
 	val token: String,
 	val isLogin: Boolean
 ): Parcelable

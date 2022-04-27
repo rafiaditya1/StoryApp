@@ -1,6 +1,8 @@
 package com.bangkit.storyapp.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -9,7 +11,7 @@ import kotlinx.parcelize.Parcelize
 data class StoryResponse(
 
 	@field:SerializedName("listStory")
-	val listStory: List<ListStoryItem>,
+	val listStory: List<ListStoryItem?>? = null,
 
 	@field:SerializedName("error")
 	val error: Boolean,
@@ -18,27 +20,29 @@ data class StoryResponse(
 	val message: String
 ) : Parcelable
 
+@Entity(tableName = "story")
 @Parcelize
 data class ListStoryItem(
 
 	@field:SerializedName("photoUrl")
-	val photoUrl: String,
+	val photoUrl: String? = null,
 
 	@field:SerializedName("createdAt")
-	val createdAt: String,
+	val createdAt: String? = null,
 
 	@field:SerializedName("name")
-	val name: String,
+	val name: String? = null,
 
 	@field:SerializedName("description")
-	val description: String,
+	val description: String? = null,
 
-//	@field:SerializedName("lon")
-//	val lon: Any,
+	@field:SerializedName("lon")
+	val lon: Double? = null,
 
+	@PrimaryKey
 	@field:SerializedName("id")
-	val id: String? = null,
+	val id: String,
 
-//	@field:SerializedName("lat")
-//	val lat: Any
+	@field:SerializedName("lat")
+	val lat: Double? = null
 ) : Parcelable

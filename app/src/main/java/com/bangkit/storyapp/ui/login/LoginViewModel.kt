@@ -33,10 +33,13 @@ class LoginViewModel(private val preference: SettingPreference) : ViewModel() {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 _isLoading.value = false
                 val responseBody = response.body()
+                val responseBodyLogin = responseBody?.loginResult
                 if (response.isSuccessful) {
 //                    _user.value = response.body()?.loginResult
                     if (responseBody != null) {
-                        saveUser(UserLogin(responseBody.loginResult.token, true))
+                        if (responseBodyLogin != null) {
+                            saveUser(UserLogin(responseBodyLogin.name, responseBodyLogin.userId, email, password, responseBodyLogin.token,true))
+                        }
                     }
                 } else {
                     Log.e(ContentValues.TAG, "onFailure: ${response.message()}")

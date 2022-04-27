@@ -15,6 +15,10 @@ class SettingPreference private constructor(private val dataStore: DataStore<Pre
     fun getUserToken(): Flow<UserLogin> {
         return dataStore.data.map {
             UserLogin(
+                it[NAME_KEY] ?: "",
+                it[USERID_KEY] ?: "",
+                it[EMAIL_KEY] ?: "",
+                it[PASSWORD_KEY] ?: "",
                 it[TOKEN] ?: "",
                 it[STATE] ?: false
             )
@@ -23,6 +27,10 @@ class SettingPreference private constructor(private val dataStore: DataStore<Pre
 
     suspend fun saveUserLogin(user: UserLogin) {
         dataStore.edit {
+            it[NAME_KEY] = user.name
+            it[USERID_KEY] = user.userId
+            it[EMAIL_KEY] = user.email
+            it[PASSWORD_KEY] = user.password
             it[TOKEN] = user.token
             it[STATE] = user.isLogin
         }
@@ -42,6 +50,10 @@ class SettingPreference private constructor(private val dataStore: DataStore<Pre
 
         private val TOKEN = stringPreferencesKey("token")
         private val STATE = booleanPreferencesKey("state")
+        private val NAME_KEY = stringPreferencesKey("name")
+        private val EMAIL_KEY = stringPreferencesKey("email")
+        private val PASSWORD_KEY = stringPreferencesKey("password")
+        private val USERID_KEY = stringPreferencesKey("userId")
 
         fun getInstance(dataStore: DataStore<Preferences>) : SettingPreference {
             return INSTANCE ?: synchronized(this) {

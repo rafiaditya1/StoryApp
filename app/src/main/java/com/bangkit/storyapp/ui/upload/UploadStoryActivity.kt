@@ -114,7 +114,8 @@ class UploadStoryActivity : AppCompatActivity() {
                                 Toast.makeText(this@UploadStoryActivity, getString(R.string.upload_success), Toast.LENGTH_SHORT).show()
                                 val intent =
                                     Intent(this@UploadStoryActivity, MainActivity::class.java)
-                                startActivity(intent)
+//                                startActivity(intent)
+                                finish()
                             } else {
                                 Toast.makeText(this@UploadStoryActivity, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show()
                                 Log.e(ContentValues.TAG, "onFailure: ${response.message()}")

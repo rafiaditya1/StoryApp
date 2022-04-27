@@ -28,6 +28,14 @@ interface ApiService {
         @Header("Authorization") header: String,
     ) : Call<StoryResponse>
 
+    @GET("stories")
+    suspend fun getAllStory(
+        @Header("Authorization") header: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+        @Query("location") location: Int
+    ) : StoryResponse
+
     @Multipart
     @POST("stories")
     fun storyUpload(
@@ -35,4 +43,10 @@ interface ApiService {
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody,
     ): Call<UploadResponse>
+
+    @GET("stories?location=1")
+    suspend fun getStoryLocation(
+        @Header("Authorization") token: String
+    ): StoryResponse
+
 }
