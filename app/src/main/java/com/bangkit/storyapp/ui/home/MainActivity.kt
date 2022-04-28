@@ -11,21 +11,17 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.storyapp.R
 import com.bangkit.storyapp.adapter.StoryAdapter
-import com.bangkit.storyapp.ui.home.ViewModelFactory
-import com.bangkit.storyapp.data.model.ListStoryItem
-import com.bangkit.storyapp.data.model.LoginResult
 import com.bangkit.storyapp.data.model.UserLogin
 import com.bangkit.storyapp.data.preference.SettingPreference
 import com.bangkit.storyapp.databinding.ActivityMainBinding
-import com.bangkit.storyapp.ui.home.HomeViewModel
+import com.bangkit.storyapp.ui.map.MapActivity
 import com.bangkit.storyapp.ui.setting.SettingActivity
 import com.bangkit.storyapp.ui.upload.UploadStoryActivity
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
 
 class MainActivity : AppCompatActivity() {
 
@@ -107,6 +103,11 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.setting -> {
                 val intent = Intent(this, SettingActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.map -> {
+                val intent = Intent(this, MapActivity::class.java)
                 startActivity(intent)
                 return true
             }
