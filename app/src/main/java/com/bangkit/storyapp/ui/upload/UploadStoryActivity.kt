@@ -48,7 +48,6 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 
-//private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class UploadStoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUploadStoryBinding
@@ -133,7 +132,6 @@ class UploadStoryActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this, UploadViewModelFactory(SettingPreference.getInstance(dataStore)))[UploadViewModel::class.java]
 
-//        user = intent.getParcelableExtra(EXTRA_USER)!!
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -158,7 +156,6 @@ class UploadStoryActivity : AppCompatActivity() {
             val file = reduceFileImage(getFile as File)
 
             val description = binding.edtDescription.text.toString().toRequestBody("text/plain".toMediaType())
-//            val description = binding.edtDescription.text.toString()
             val lat = locations.latitude.toFloat()
             val long = locations.longitude.toFloat()
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
@@ -167,54 +164,6 @@ class UploadStoryActivity : AppCompatActivity() {
                 file.name,
                 requestImageFile
             )
-
-//            viewModel.uploadImage(user, description, imageMultipart, lat, long, object : ApiCallbackString {
-//                override fun onResponse(success: Boolean, message: String) {
-//                    showAlertDialog(success, message)
-//                }
-//
-//            })
-
-//            viewModel.getUserToken.observe(
-//                this
-//            ) { token: String ->
-//                val service = ApiConfig.getApiService().storyUpload("Bearer $token", imageMultipart, description, lat, long)
-//                showLoading(true)
-//                service.enqueue(object : Callback<UploadResponse> {
-//                    override fun onResponse(
-//                        call: Call<UploadResponse>,
-//                        response: Response<UploadResponse>,
-//                    ) {
-//                        if (response.isSuccessful) {
-//                            showLoading(false)
-//                            val responseBody = response.body()
-//                            if (responseBody != null && !responseBody.error) {
-//                                Toast.makeText(this@UploadStoryActivity,
-//                                    responseBody.message,
-//                                    Toast.LENGTH_SHORT).show()
-//                                val intent =
-//                                    Intent(this@UploadStoryActivity, MainActivity::class.java)
-//                                startActivity(intent)
-//                                finish()
-//                            } else {
-//                                showLoading(false)
-//                                Toast.makeText(
-//                                    this@UploadStoryActivity,
-//                                    response.message(),
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//                        }
-//                    }
-//
-//                    override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
-//                        showLoading(false)
-//                        Toast.makeText(this@UploadStoryActivity, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show()
-//                        Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
-//                    }
-//
-//                })
-//            }
 
             viewModel.getUser().observe(this) {
                 if (it != null) {

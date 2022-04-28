@@ -53,37 +53,12 @@ class MainActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.rvStories.layoutManager = layoutManager
 
-//        val listStory = ArrayList<ListStoryItem>()
-
         adapter = StoryAdapter()
         binding.rvStories.adapter = adapter.withLoadStateFooter(
             footer = LoadingStateAdapter {
                 adapter.retry()
             }
         )
-
-//        homeViewModel.getUser().observe(this) {
-//            if (it != null) {
-//                homeViewModel.getStories(it.token)
-//                fun setDataStory(users: List<ListStoryItem>) {
-//                    setStories(users)
-//                }
-//
-//            }
-//        }
-
-//        homeViewModel.getUser().observe(this) {
-//            if (it != null) {
-//                homeViewModel.getStories(it.token)
-//                fun setDataStory(users: PagingData<ListStoryItem>) {
-//                    adapter.submitData(lifecycle, users)
-//                }
-//            }
-//        }
-
-//        homeViewModel.getAllStories.observe(this) {
-//            setStories(it)
-//        }
 
 
         binding.fabAdd.setOnClickListener {
