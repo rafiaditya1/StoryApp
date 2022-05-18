@@ -81,3 +81,7 @@ fun uriToFile(selectedImg: Uri, context: Context): File {
 
     return myFile
 }
+
+interface ApiCallbackString {
+    fun onResponse(success: Boolean, message: String)
+}

@@ -31,6 +31,7 @@ class SettingActivity : AppCompatActivity() {
             viewModel.logout()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.btnLanguage.setOnClickListener {
